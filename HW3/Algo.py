@@ -60,4 +60,16 @@ def dijkstra(edges, from_node, to_node):
 
 for i in range(1, int(nodes[0])):
     costs, paths = dijkstra(results, '0', str(i))
-    print("shortest path to node " + str(i) + " is " + str(paths) + "Cost: " + str(costs))
+
+    if ( costs >= 0):
+        output = ""
+        for p in paths:
+            output += str(p) + '->'
+
+        output = output[:-2]
+        
+    else:
+        costs = "N/A"
+        paths = "N/A"
+    
+    print("shortest path to node " + str(i) + " is " + str(output) + " with cost: " + str(costs))
